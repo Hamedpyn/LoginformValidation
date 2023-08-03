@@ -6,20 +6,66 @@ let
     passWordInput = document.querySelector('#pass'),
     signUpBtn = document.querySelector('#signUp'),
     form = document.querySelector('.form'),
-    resetBtn = document.querySelector('#resetBtn')
+    resetBtn = document.querySelector('#resetBtn'),
+    nameText = document.querySelector('#nameText'),
+    emailText = document.querySelector('#emailText'),
+    passText = document.querySelector('#passText');
 
-function disablingBtn (){
-    signUpBtn.disabled = true
-    signUpBtn.setAttribute('style','background-color:#dfdfdfee')
-    signUpBtn.style.scale = '1'
-}
-disablingBtn()
+// Events
+resetBtn.addEventListener('click', () => {
+    form.reset()
+})
+
+document.addEventListener('DOMContentLoaded', () => {
+    disablingBtn()
+})
 
 nameInput.addEventListener('blur', formValidation)
 emailInput.addEventListener('blur', formValidation)
 passWordInput.addEventListener('blur', formValidation)
-function formValidation() { }
-resetBtn.addEventListener('click',()=>{
-    form.reset()
-})
 
+// functions 
+
+function disablingBtn() {
+    // disabling the sign up button
+    signUpBtn.disabled = true
+    // changing its bgc
+    signUpBtn.setAttribute('style', 'background-color:#dfdfdfee')
+    signUpBtn.style.scale = '1'
+}
+
+function formValidation() {
+    if (this.value.length > 1 ) {
+        if (this.type == 'email') {
+            if (this.value.includes('@')) {
+                right(this,emailText)
+            }else {
+                wrong(this,emailText)
+            }
+        }else if(this.type == 'text'){
+            if (this.value.length > 7) {
+                right(this,nameText)
+            }else {
+                wrong(this,nameText)
+            }
+        }else if(this.type == 'password'){
+            if (this.value.length > 8) {
+                right(this,passText)
+            } else {
+                wrong(this,passText)
+            }
+        }
+    }else {
+        this.style.border = '1px solid red'
+    }
+}
+
+
+function right(x,y){
+    x.style.border = '1px solid green'
+    y.setAttribute('style','display:none')
+}
+function wrong(x,y){
+    x.style.border = '1px solid red'
+    y.setAttribute('style','display:block')
+}

@@ -95,7 +95,7 @@ body {
 .form {
     margin: 0 0 36px;
     display: grid;
-    gap: 16px;
+    gap: 15px;
     transition: all 0.2s;
 }
 
@@ -164,6 +164,20 @@ body {
     gap: 10px;
 }
 
-.card span:active {
-    scale: 0.8;
+.errorText {
+    text-align: left;
+    margin-left: 25px;
+    margin-top: -10px;
+    font-size: 14px;
+    color: red;
+}
+
+#emailText{
+    display: none;
+}
+#nameText {
+    display: none;
+}
+#passText {
+    display: none;
 }
