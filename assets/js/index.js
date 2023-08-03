@@ -14,3 +14,8 @@ function disablingBtn (){
 }
 disablingBtn()
 
+nameInput.addEventListener('blur',formValidation)
+emailInput.addEventListener('blur',formValidation)
+passWordInput.addEventListener('blur',formValidation)
+
+function formValidation(){}
