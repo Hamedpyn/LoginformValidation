@@ -67,11 +67,12 @@ function formValidation() {
 
 // Adding event listener for sign up button click
 signUpBtn.addEventListener('click', () => {
+    // Resetting border color for all input fields
     allInputs.forEach(input => {
-        input.style.borderColor = "#ebebeb"
-    })
-    form.reset()
-})
+        input.style.borderColor = "#ebebeb";
+    });
+    form.reset(); // Resetting the form
+});
 
 // Applying green border for valid input and hiding the error message
 function right(x, y) {
