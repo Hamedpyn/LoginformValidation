@@ -8,6 +8,7 @@ let
     form = document.querySelector('.form'),
     resetBtn = document.querySelector('#resetBtn'),
     nameText = document.querySelector('#nameText'),
+    allInputs = document.querySelectorAll('.input'),
     emailText = document.querySelector('#emailText'),
     passText = document.querySelector('#passText');
 
@@ -62,6 +63,9 @@ function formValidation() {
 }
 
 signUpBtn.addEventListener('click', () => {
+    allInputs.forEach(input => {
+        input.style.borderColor = "#ebebeb"
+    })
     form.reset()
 })
 
